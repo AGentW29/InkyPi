@@ -12,10 +12,10 @@
     
     .message-wrapper {
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        top: var(--top-margin, 0px);
+        left: var(--left-margin, 0px);
+        right: var(--right-margin, 0px);
+        bottom: var(--bottom-margin, 0px);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -33,8 +33,8 @@
     }
 </style>
 
-<div class="message-wrapper">
-    <div class="message-content" style="--font-scale: {{ font_scale }};">
+<div class="message-wrapper" style="--font-scale: {{ font_scale }}; --top-margin: {{ top_margin }}px; --left-margin: {{ left_margin }}px; --right-margin: {{ right_margin }}px; --bottom-margin: {{ bottom_margin }}px;">
+    <div class="message-content">
         {{ message }}
     </div>
 </div>

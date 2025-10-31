@@ -25,6 +25,10 @@ class MessageDisplay(BasePlugin):
         template_params = {
             "message": settings.get('message', ''),
             "font_scale": FONT_SIZES.get(settings.get('fontSize', 'normal'), 1),
+            "top_margin": settings.get('topMargin', 0),
+            "left_margin": settings.get('leftMargin', 0),
+            "right_margin": settings.get('rightMargin', 0),
+            "bottom_margin": settings.get('bottomMargin', 0),
             "plugin_settings": settings
         }
         

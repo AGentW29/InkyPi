@@ -5,10 +5,10 @@ logger = logging.getLogger(__name__)
 
 FONT_SIZES = {
     "x-small": 1,
-    "small": 1.2,
-    "normal": 1.5,
-    "large": 3,
-    "x-large": 5
+    "small": 1.5,
+    "normal": 3,
+    "large": 5,
+    "x-large": 10
 }
 
 class MessageDisplay(BasePlugin):

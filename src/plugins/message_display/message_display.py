@@ -4,11 +4,11 @@ import logging
 logger = logging.getLogger(__name__)
 
 FONT_SIZES = {
-    "x-small": 0.7,
-    "small": 0.9,
-    "normal": 1,
-    "large": 1.2,
-    "x-large": 1.5
+    "x-small": 1,
+    "small": 1.2,
+    "normal": 1.5,
+    "large": 3,
+    "x-large": 5
 }
 
 class MessageDisplay(BasePlugin):

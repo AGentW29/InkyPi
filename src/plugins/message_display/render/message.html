@@ -1,31 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="message.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            font-family: Arial, sans-serif;
-        }
-        .message-container {
-            text-align: center;
-            padding: 20px;
-            font-size: calc(24px * {{font_scale}});
-            line-height: 1.4;
-            word-wrap: break-word;
-            max-width: 90%;
-        }
-    </style>
-</head>
-<body>
-    <div class="message-container">
-        {{message}}
-    </div>
-</body>
-</html>
+{% extends "plugin.html" %}
+
+{% block content %}
+<div class="message-container" style="--font-scale: {{ font_scale }};">
+    {{ message }}
+</div>
+
+<style>
+    .message-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        text-align: center;
+        padding: 20px;
+        font-size: calc(24px * var(--font-scale));
+        line-height: 1.4;
+        word-wrap: break-word;
+        width: 90%;
+        margin: 0 auto;
+    }
+</style>
+{% endblock %}

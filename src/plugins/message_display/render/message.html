@@ -1,33 +1,41 @@
 {% extends "plugin.html" %}
 
 {% block content %}
-<div class="message-container" style="--font-scale: {{ font_scale }};">
-    {{ message }}
-</div>
-
 <style>
-    .message-container {
-        /* Fill the entire display */
-        position: absolute;
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .message-wrapper {
+        position: fixed;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        
-        /* Center content both horizontally and vertically */
         display: flex;
         justify-content: center;
         align-items: center;
-        text-align: center;
-        
-        padding: 20px;
         box-sizing: border-box;
-        
-        /* Scale font size based on variable */
+    }
+    
+    .message-content {
+        text-align: center;
+        padding: 20px;
+        max-width: 100%;
         font-size: calc(24px * var(--font-scale));
         line-height: 1.4;
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
 </style>
+
+<div class="message-wrapper">
+    <div class="message-content" style="--font-scale: {{ font_scale }};">
+        {{ message }}
+    </div>
+</div>
 {% endblock %}

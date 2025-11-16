@@ -1,4 +1,5 @@
 from flask import Blueprint, current_app, jsonify
+from flask import render_template
 import threading
 import time
 from PIL import Image
@@ -62,3 +63,9 @@ def start_color_cycle():
     thread = threading.Thread(target=_color_cycle_thread, args=(display_manager, device_config), daemon=True)
     thread.start()
     return jsonify({'message': 'Color cycle started'}), 202
+
+
+@diagnostics_bp.route('/diagnostics')
+def diagnostics_page():
+    """Render a simple diagnostics page with a button to start the color cycle."""
+    return render_template('diagnostics.html')

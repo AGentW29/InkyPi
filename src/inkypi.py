@@ -26,6 +26,7 @@ from blueprints.main import main_bp
 from blueprints.settings import settings_bp
 from blueprints.plugin import plugin_bp
 from blueprints.playlist import playlist_bp
+from blueprints.diagnostics import diagnostics_bp
 from jinja2 import ChoiceLoader, FileSystemLoader
 from plugins.plugin_registry import load_plugins
 from waitress import serve
@@ -75,6 +76,7 @@ app.register_blueprint(main_bp)
 app.register_blueprint(settings_bp)
 app.register_blueprint(plugin_bp)
 app.register_blueprint(playlist_bp)
+app.register_blueprint(diagnostics_bp)
 
 if __name__ == '__main__':
 

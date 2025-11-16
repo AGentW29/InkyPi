@@ -1,0 +1,25 @@
+<div class="form-group">
+    <p>Run a full-screen color cycle to verify the display.</p>
+    <div class="form-group">
+        <button type="button" id="startCycle" class="action-button">Start Color Cycle</button>
+    </div>
+    <div id="cycleStatus" style="margin-top:10px; font-weight:600;"></div>
+</div>
+
+<script>
+document.getElementById('startCycle').addEventListener('click', async () => {
+    const status = document.getElementById('cycleStatus');
+    status.textContent = 'Starting...';
+    try {
+        const res = await fetch('/diagnostics/color_cycle', { method: 'POST' });
+        const json = await res.json();
+        if (res.ok) {
+            status.textContent = json.message;
+        } else {
+            status.textContent = json.error || 'Failed to start';
+        }
+    } catch (err) {
+        status.textContent = 'Request failed';
+    }
+});
+</script>
